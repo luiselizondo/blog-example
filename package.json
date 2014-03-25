@@ -1,0 +1,18 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "expressjsmvc": "*",
+    "mongoose": "*",
+    "socket.io": "*",
+    "moment": "*",
+    "express-flash": "0.0.2",
+    "includemvc": "*",
+    "jade": "*"
+  }
+}

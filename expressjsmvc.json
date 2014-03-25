@@ -1,0 +1,6 @@
+{
+  "components": {
+    "frontpage": "http://github.com/luiselizondo/expressmvc-frontpage.git",
+    "blog": "https://github.com/luiselizondo/expressjsmvc-blog.git"
+  }
+}
