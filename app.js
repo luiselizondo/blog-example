@@ -5,7 +5,7 @@
 
 var express = require("express");
 var include = require("includemvc");
-var config = include.path("config", "config.json");
+var config = include.path("config", "config.js");
 var app = module.exports = exports = express();
 var path = require("path");
 var mvc = require("expressjsmvc");
@@ -29,7 +29,11 @@ app.use(express.cookieParser('keyboard cat'));
 app.use(express.session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Solo servir los archivos estáticos desde node.js si el ambiente no es producción
+if(process.env.NODE_ENV != "production") {
+  app.use(express.static(path.join(__dirname, 'public')));
+}
 
 /** 
  * Autodetect all views in components 

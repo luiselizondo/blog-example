@@ -10,9 +10,7 @@ if(config.enableIO) {
 	var io = include.lib("socket")(server);
 }
 
-var address = process.env.MONGODB_PORT_27017_TCP_ADDR;
-var port = process.env.MONGODB_PORT_27017_TCP_PORT;
-mongoose.connect("mongodb://" + address + ":" + port + "/blog");
+mongoose.connect(config.mongodburi);
 
 /** 
  * Load all components enabled in config.components
@@ -24,5 +22,6 @@ components.forEach(function(component) {
 });
 
 server.listen(app.get('port'), function(){
+	console.log(config.mongodburi);
   console.log('Express.js MVC server listening on port ' + app.get('port'));
 });
